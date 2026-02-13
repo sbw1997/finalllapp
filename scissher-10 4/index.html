@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="ScissHER">
+  <meta name="theme-color" content="#030712">
+  <title>ScissHER | Intentional Connection</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rose: #fb7185;
+      --violet: #a855f7;
+      --mint: #34d399;
+      --obsidian: #030712;
+      --pearl: #f1f5f9;
+    }
+
+    * {
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    input, textarea {
+      -webkit-user-select: text;
+      user-select: text;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden; /* Prevent body scroll */
+      position: fixed; /* Prevents elastic bounce on body */
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--obsidian);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(168, 85, 247, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(251, 113, 133, 0.15) 0px, transparent 50%),
+        radial-gradient(at 50% 100%, rgba(52, 211, 153, 0.1) 0px, transparent 50%);
+      color: var(--pearl);
+      letter-spacing: -0.01em;
+    }
+    
+    .glass {
+      background: rgba(15, 23, 42, 0.5);
+      backdrop-filter: blur(25px) saturate(180%);
+      -webkit-backdrop-filter: blur(25px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .petal-gradient {
+      background: linear-gradient(135deg, #fb7185 0%, #a855f7 50%, #6366f1 100%);
+      background-size: 200% 200%;
+      animation: gradient-shift 6s ease-in-out infinite;
+    }
+
+    @keyframes gradient-shift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .shimmer-text {
+      background: linear-gradient(90deg, #fb7185, #a855f7, #6366f1, #34d399, #fb7185);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 5s linear infinite;
+      display: inline-block;
+      padding-right: 0.3em;
+      margin-right: -0.3em;
+      vertical-align: bottom;
+    }
+
+    @keyframes shimmer {
+      to { background-position: 200% center; }
+    }
+
+    .pb-safe { padding-bottom: max(env(safe-area-inset-bottom), 1rem); }
+    .pt-safe { padding-top: max(env(safe-area-inset-top), 1rem); }
+
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { 
+      -ms-overflow-style: none; 
+      scrollbar-width: none;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .sheet-grabber {
+      width: 44px;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      margin: 8px auto;
+    }
+
+    .h-screen-ios {
+      height: 100vh;
+      height: -webkit-fill-available;
+    }
+
+    .shimmer-btn {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(45deg, #fb7185, #a855f7);
+      background-size: 200% 200%;
+      animation: gradient-shift 4s ease infinite;
+    }
+
+    .shimmer-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+      transform: rotate(45deg);
+      animation: btn-shimmer 3s infinite;
+    }
+
+    @keyframes btn-shimmer {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.37.0",
+    "@capacitor/haptics": "https://esm.sh/@capacitor/haptics@^6.0.0",
+    "@capacitor/status-bar": "https://esm.sh/@capacitor/status-bar@^6.0.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="h-screen-ios">
+  <div id="root" class="h-full w-full"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
